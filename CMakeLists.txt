@@ -11,6 +11,27 @@ cmake_minimum_required(VERSION 3.1)
 #   target_compile_features(foo PUBLIC cxx_std_14)
 # together.
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -g")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer")
+
+# --- SDL2 setup for ARM Homebrew ---
+# Looks for SDL2 in /opt/homebrew (Apple Silicon)
+find_path(SDL2_INCLUDE_DIR SDL.h
+    HINTS /opt/homebrew/include
+    PATH_SUFFIXES SDL2
+)
+
+find_library(SDL2_LIBRARY SDL2
+    HINTS /opt/homebrew/lib
+)
+
+if (NOT SDL2_INCLUDE_DIR OR NOT SDL2_LIBRARY)
+    message(FATAL_ERROR "SDL2 not found. Please install it with ARM Homebrew.")
+endif()
+
+message(STATUS "Found SDL2 include dir: ${SDL2_INCLUDE_DIR}")
+message(STATUS "Found SDL2 library: ${SDL2_LIBRARY}")
+
 
 # Set the project name and version number. This allows for a user of your
 # library or tool to specify a particular version when they include it, as in 
@@ -55,18 +76,19 @@ add_subdirectory(include)
 # stdout with:
 #   ctest -V
 
-if(BUILD_TESTING)
-    add_subdirectory(tests)
-endif()
-
 # Add the library CMakeDemo as a target, with the contents of src/ and include/
 # as dependencies.
 add_library(CMakeDemo STATIC ${CMakeDemo_SRC} ${CMakeDemo_INC})
+# Link SDL2 to the CMakeDemo target
+target_include_directories(CMakeDemo PRIVATE ${SDL2_INCLUDE_DIR})
+target_link_libraries(CMakeDemo PRIVATE ${SDL2_LIBRARY})
 
 # These variables slightly modify the install location to allow for version
 # specific installations.
 set(CMakeDemo_INCLUDE_DEST "include/CMakeDemo-${CMakeDemo_VERSION}")
 set(CMakeDemo_LIB_DEST "lib/CMakeDemo-${CMakeDemo_VERSION}")
+
+
 
 
 # generator expressions are needed for the include directories, since installing headers changes the include path
@@ -95,7 +117,7 @@ target_include_directories(CMakeDemo PUBLIC
 # specify LAPACK::LAPACK for linking so that we can avoid using the variables.
 # However, each package is different and one must check the documentation to 
 # see what variables are defined.
-target_link_libraries(CMakeDemo ${LAPACK_LIBRARIES})
+target_link_libraries(CMakeDemo PRIVATE ${LAPACK_LIBRARIES})
 
 # Install CMakeDemo in CMAKE_INSTALL_PREFIX (defaults to /usr/local on linux). 
 # To change the install location, run 

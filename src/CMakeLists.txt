@@ -8,6 +8,10 @@
 # file(GLOB ...) or not, you will need to re-run cmake, but with an explicit
 # file list, you know beforehand why your code isn't compiling. 
 set(CMakeDemo_SRC
+    cpu.cpp
+    main.cpp 
+    display.cpp
+    platform.cpp
     source_file.cpp
     )
 
@@ -15,3 +19,9 @@ set(CMakeDemo_SRC
 PREPEND(CMakeDemo_SRC)
 # ... and pass the variable to the parent scope.
 set(CMakeDemo_SRC ${CMakeDemo_SRC}  PARENT_SCOPE)
+# Add a standalone SDL application
+add_executable(SDLApp main.cpp)
+
+# Link the CMakeDemo library and SDL2 to it
+target_link_libraries(SDLApp PRIVATE CMakeDemo ${SDL2_LIBRARY})
+target_include_directories(SDLApp PRIVATE ${SDL2_INCLUDE_DIR})

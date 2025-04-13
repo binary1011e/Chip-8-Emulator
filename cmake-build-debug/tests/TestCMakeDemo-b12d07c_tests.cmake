@@ -1,0 +1,1 @@
+set( TestCMakeDemo_TESTS)

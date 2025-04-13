@@ -8,7 +8,10 @@
 # file(GLOB ...) or not, you will need to re-run cmake, but with an explicit
 # file list, you know beforehand why your code isn't compiling. 
 set(CMakeDemo_INC
-    source_file.hpp
+    main.hpp
+    cpu.hpp
+    display.hpp
+    platform.hpp
     )
 
 # Form the full path to the source files...

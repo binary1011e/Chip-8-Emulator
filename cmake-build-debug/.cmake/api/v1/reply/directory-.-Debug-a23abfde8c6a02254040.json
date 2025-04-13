@@ -1,0 +1,105 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 138,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 159,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 174,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 186,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/CMakeDemo-1.0",
+			"paths" : 
+			[
+				"/Users/aidanwang/repos/cmake-project-template/lib/libCMakeDemo.a"
+			],
+			"targetId" : "CMakeDemo::@6890427a1f51a3e7e1df",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/CMakeDemo-1.0",
+			"exportName" : "CMakeDemoTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "CMakeDemo::@6890427a1f51a3e7e1df",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"CMakeFiles/Export/49a8d68cc1038c2dacab634b3ba5cade/CMakeDemoTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/CMakeDemo-1.0",
+			"paths" : 
+			[
+				"include/main.hpp",
+				"include/cpu.hpp",
+				"include/display.hpp",
+				"include/platform.hpp"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/CMakeDemo-1.0",
+			"paths" : 
+			[
+				"cmake/CMakeDemo-config.cmake",
+				"cmake-build-debug/CMakeDemoConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}
