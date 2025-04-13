@@ -13,6 +13,7 @@ set(CMakeDemo_SRC
     display.cpp
     platform.cpp
     source_file.cpp
+    sound.cpp
     )
 
 # Form the full path to the source files...

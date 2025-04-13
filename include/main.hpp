@@ -5,3 +5,4 @@
 #include <chrono>
 #include "cpu.hpp"
 #include "platform.hpp"
+#include "sound.hpp"

@@ -252,6 +252,13 @@ build CMakeFiles/CMakeDemo.dir/src/source_file.cpp.o: CXX_COMPILER__CMakeDemo_un
   OBJECT_DIR = CMakeFiles/CMakeDemo.dir
   OBJECT_FILE_DIR = CMakeFiles/CMakeDemo.dir/src
 
+build CMakeFiles/CMakeDemo.dir/src/sound.cpp.o: CXX_COMPILER__CMakeDemo_unscanned_Debug /Users/aidanwang/repos/cmake-project-template/src/sound.cpp || cmake_object_order_depends_target_CMakeDemo
+  DEP_FILE = CMakeFiles/CMakeDemo.dir/src/sound.cpp.o.d
+  FLAGS = -Wall -Wextra -g -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++11 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/include/SDL2 -I/Users/aidanwang/repos/cmake-project-template/include -I/Users/aidanwang/repos/cmake-project-template/cmake-build-debug/include -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks
+  OBJECT_DIR = CMakeFiles/CMakeDemo.dir
+  OBJECT_FILE_DIR = CMakeFiles/CMakeDemo.dir/src
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target CMakeDemo
@@ -260,7 +267,7 @@ build CMakeFiles/CMakeDemo.dir/src/source_file.cpp.o: CXX_COMPILER__CMakeDemo_un
 #############################################
 # Link the static library /Users/aidanwang/repos/cmake-project-template/lib/libCMakeDemo.a
 
-build /Users/aidanwang/repos/cmake-project-template/lib/libCMakeDemo.a: CXX_STATIC_LIBRARY_LINKER__CMakeDemo_Debug CMakeFiles/CMakeDemo.dir/src/cpu.cpp.o CMakeFiles/CMakeDemo.dir/src/main.cpp.o CMakeFiles/CMakeDemo.dir/src/display.cpp.o CMakeFiles/CMakeDemo.dir/src/platform.cpp.o CMakeFiles/CMakeDemo.dir/src/source_file.cpp.o
+build /Users/aidanwang/repos/cmake-project-template/lib/libCMakeDemo.a: CXX_STATIC_LIBRARY_LINKER__CMakeDemo_Debug CMakeFiles/CMakeDemo.dir/src/cpu.cpp.o CMakeFiles/CMakeDemo.dir/src/main.cpp.o CMakeFiles/CMakeDemo.dir/src/display.cpp.o CMakeFiles/CMakeDemo.dir/src/platform.cpp.o CMakeFiles/CMakeDemo.dir/src/source_file.cpp.o CMakeFiles/CMakeDemo.dir/src/sound.cpp.o
   ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk
   LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -g -g -fsanitize=address -fno-omit-frame-pointer
   OBJECT_DIR = CMakeFiles/CMakeDemo.dir

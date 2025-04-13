@@ -12,6 +12,7 @@ set(CMakeDemo_INC
     cpu.hpp
     display.hpp
     platform.hpp
+    sound.hpp
     )
 
 # Form the full path to the source files...

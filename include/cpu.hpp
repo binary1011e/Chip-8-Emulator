@@ -7,6 +7,7 @@
 #include <vector>
 #include <fstream>
 #include "display.hpp"
+#include "sound.hpp"
 class Chip {
 public:
     static constexpr uint16_t fontsStart = 0x50;
@@ -34,12 +35,13 @@ public:
         0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
         0xF0, 0x80, 0xF0, 0x80, 0x80  // F
     };
-    explicit Chip(Display &display);
+    explicit Chip(Display &display, Sound &sound);
     void step();
     void loadROM(const std::string &filepath);
     std::array<uint8_t, 16> &getKeys();
 private:
     Display &display;
+    Sound &sound;
     std::mt19937 rng;
     std::uniform_int_distribution<uint8_t> dist;
 
@@ -62,27 +64,27 @@ private:
         return (opcode & 0x0FFF);
     }
 
-    uint16_t get_xh_mask() const {
+    uint8_t get_xh_mask() const {
         return ((opcode & 0xF000) >> 12);
     }
 
-    uint16_t get_xl_mask() const {
+    uint8_t get_xl_mask() const {
         return ((opcode & 0x0F00) >> 8);
     }
 
-    uint16_t get_yh_mask() const {
+    uint8_t get_yh_mask() const {
         return ((opcode & 0x00F0) >> 4);
     }
 
-    uint16_t get_yl_mask() const {
+    uint8_t get_yl_mask() const {
         return (opcode & 0x000F);
     }
 
-    uint16_t get_first_byte() const {
+    uint8_t get_first_byte() const {
         return ((opcode & 0xFF00) >> 8);
     }
 
-    uint16_t get_last_byte() const {
+    uint8_t get_last_byte() const {
         return (opcode & 0x00FF);
     }
 };

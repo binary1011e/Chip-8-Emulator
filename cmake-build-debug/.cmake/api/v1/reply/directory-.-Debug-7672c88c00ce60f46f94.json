@@ -81,7 +81,8 @@
 				"include/main.hpp",
 				"include/cpu.hpp",
 				"include/display.hpp",
-				"include/platform.hpp"
+				"include/platform.hpp",
+				"include/sound.hpp"
 			],
 			"type" : "file"
 		},

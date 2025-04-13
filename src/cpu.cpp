@@ -1,7 +1,8 @@
 #include "cpu.hpp"
 
-Chip::Chip(Display &display) :
+Chip::Chip(Display &display, Sound &sound) :
             display(display),
+            sound(sound),
             rng(std::random_device{}()),
             dist(0, 255),
             keys(std::array<uint8_t, 16>{}) {
@@ -170,9 +171,6 @@ void Chip::execute() {
         case 0xD: {
             std::array<uint8_t, 15> spriteData{};
             if (static_cast<int>(registers[xl]) > 48) {
-                std::cout << "Drawing sprite at (" << static_cast<int>(registers[xl])
-          << ", " << static_cast<int>(registers[yh]) << ") with height "
-          << static_cast<int>(yl) << std::endl;
             }
             for (int i = 0; i < yl; i++) {
                 spriteData[i] = memory[indexRegister + i];
@@ -240,7 +238,6 @@ void Chip::execute() {
                     break;
                 }
                 default: {
-                    std::cout << std::hex << opcode << std::endl;
                     for (int i = 0; i <= xl; i++) {
                         registers[i] = memory[indexRegister + i];
                     }
@@ -260,6 +257,9 @@ void Chip::step() {
 
     if (soundTimer > 0)
     {
+        sound.play();
         soundTimer--;
+    } else {
+        sound.stop();
     }
 }

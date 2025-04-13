@@ -12,7 +12,7 @@
 						2
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-a23abfde8c6a02254040.json",
+					"jsonFile" : "directory-.-Debug-7672c88c00ce60f46f94.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.1"
@@ -130,7 +130,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CMakeDemo::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CMakeDemo-Debug-72bcbbdb15af17ba6f63.json",
+					"jsonFile" : "target-CMakeDemo-Debug-086aca71c0c77d1f5922.json",
 					"name" : "CMakeDemo",
 					"projectIndex" : 0
 				},
@@ -333,7 +333,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "SDLApp::@145eef247bfb46b6828c",
-					"jsonFile" : "target-SDLApp-Debug-86d79c74bdfcf02b9112.json",
+					"jsonFile" : "target-SDLApp-Debug-27c273a401cf85d05135.json",
 					"name" : "SDLApp",
 					"projectIndex" : 0
 				}
